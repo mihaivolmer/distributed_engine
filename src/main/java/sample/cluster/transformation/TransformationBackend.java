@@ -33,6 +33,7 @@ public class TransformationBackend extends UntypedActor {
       TransformationJob job = (TransformationJob) message;
       getSender().tell(new TransformationResult(job.getText().toUpperCase()),
           getSelf());
+      System.out.println("Successfully transformed " + job.getText() + " for " + getSender().path());
 
     } else if (message instanceof CurrentClusterState) {
       CurrentClusterState state = (CurrentClusterState) message;
